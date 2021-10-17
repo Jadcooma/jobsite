@@ -11,7 +11,7 @@
 
 <section class="px-2 py-4" style="font-family: Open Sans, sans-serif">
     <nav class="flex justify-between items-center bg-blue-500 rounded">
-        <div class="text-5xl text-white mx-3 my-3">Das Vacatur</div>
+        <a href="/" class="text-5xl text-white mx-3 my-3">Das Vacatur</a>
         @auth
         <div class="flex items-center">
             <span class="text-3xl text-white item-center">Welkom {{auth()->user()->name}} </span>
@@ -26,7 +26,9 @@
         <div class="mx-3 my-3 text-white font-bold">
             @auth
             @if (auth()->user()->username === 'admin')
-            <a href="/admin/jobs/create">Aanmaak Jobs</a> |
+            <a href="/admin/jobs/manage">Beheer Jobs</a> |
+            <a href="/admin/companies/manage">Beheer Bedrijven</a> |
+            <a href="/admin/cities/manage">Beheer Steden</a>
             @endif
             @endauth
 

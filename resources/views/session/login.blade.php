@@ -1,6 +1,6 @@
 <x-layout>
     <section class="px-6 py-8">
-        <main class="max-w-lg mx-auto mt-10">
+        <main class="max-w-lg mx-auto mt-6">
             <x-panel>
                 <h1 class="text-center font-bold text-xl">Aanmelden</h1>
 

@@ -15,7 +15,7 @@ class UserController extends Controller
     {
         $attributes = request()->validate([
             'name' => 'required|max:255|min:5',
-            'username' => 'required|max:255|min:5|unique:users,username',
+            'username' => 'required|max:255|min:5|unique:users,username|not_in:admin', // no registration as admin
             'email' => 'required|email|max:255|unique:users,email',
             'password' => 'required|min:5|max:255'
         ]);

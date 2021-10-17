@@ -30,7 +30,6 @@ class SessionController extends Controller
     public function destroy()
     {
         auth()->logout();
-
         return redirect('/')->with('success', 'U werd succesvol afgemeld');
     }
 }

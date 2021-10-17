@@ -27,7 +27,7 @@
                         @endforeach
                     </ul>
                     @endif
-                    <button class="p-2 mt-2 font-bold bg-grey-200 border-2 border-black border-solid rounded-sm" type="submit">Registreren</button>
+                    <button class="p-2 mt-2 font-bold bg-grey-200 border-2 border-black border-solid rounded" type="submit">Registreren</button>
                 </form>
             </x-panel>
         </main>

@@ -12,6 +12,12 @@ class JobController extends Controller
         ]);
     }
 
+    public function manage() {
+        return view('jobs.manage', [
+            'jobs' => Job::with('city', 'company')->get()
+        ]);
+    }
+
     public function create() {
         return view('jobs.create');
     }

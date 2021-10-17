@@ -1,5 +1,5 @@
 <x-layout>
-    <header class="my-10">
+    <header class="my-6">
         <div class="text-center text-xl">
             Nieuwe job aanmaken
         </div>

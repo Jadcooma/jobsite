@@ -1,7 +1,7 @@
 <x-layout>
-    <header class="my-10">
+    <header class="my-6">
         <div class="text-center text-xl">
-            Vind hier jouw volgende droomjob!
+            Vind hier uw volgende droomjob!
         </div>
     </header>
     <main class="mt-6">
