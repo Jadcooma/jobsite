@@ -14,7 +14,7 @@
         <div class="text-5xl text-white mx-3 my-3">Das Vacatur</div>
         @auth
         <div class="flex items-center">
-            <span class="text-3xl text-white">Welkom {{auth()->user()->name}} </span>
+            <span class="text-3xl text-white item-center">Welkom {{auth()->user()->name}} </span>
             <form method="POST" action="/session/logout" class="light ml-3 font-semibold text-blue-500">
                 @csrf
                 <button type="submit" class="p-1 mt-3 text-white border-white rounded border-2">
@@ -24,11 +24,15 @@
         </div>
         @endauth
         <div class="mx-3 my-3 text-white font-bold">
+            @auth
+            @if (auth()->user()->username === 'admin')
+            <a href="/admin/jobs/create">Aanmaak Jobs</a> |
+            @endif
+            @endauth
 
-            <a href="/jobs/create">Beheer Jobs</a> |
             @guest
-            <a href="/user/create">Registratie</a> |
-            <a href="/session/login">Aanmelden</a> |
+            <a href="/user/create">Registreren</a> |
+            <a href="/session/login">Aanmelden</a>
             @endguest
         </div>
     </nav>

@@ -17,8 +17,8 @@ class CreateJobsTable extends Migration
             $table->id();
             $table->string('function');
             $table->text("description");
-            $table->foreignId('company_id');
-            $table->foreignId('city_id');
+            $table->foreignId('company_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('city_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }
