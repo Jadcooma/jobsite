@@ -5,8 +5,6 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\Job;
 use App\Models\User;
-use Illuminate\Support\Str;
-
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,7 +16,21 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         Job::factory(10)->create();
-        User::factory(1)->create([
+        User::create([
+            'name' => 'Jan Janssens',
+            'username' => 'Janneman',
+            'email' => 'janneman@gmail.com',
+            'password' => 'password'
+        ]);
+        User::create([
+            'name' => 'Administrator',
+            'username' => 'admin',
+            'email' => 'admin@jobsite.be',
+            'password' => 'admin'
+        ]);
+
+        /*         
+            User::factory(1)->create([
             'name' => 'Jan Janssens',
             'username' => 'user',
             'password' => bcrypt('password'),
@@ -33,5 +45,6 @@ class DatabaseSeeder extends Seeder
             'email_verified_at' => now(),
             'remember_token' => Str::random(10)            
         ]);
+        */
     }
 }
