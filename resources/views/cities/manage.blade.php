@@ -21,7 +21,7 @@
         <div class="text-center text-2xl">Geen steden in database gevonden..</div>
         @else
         <table class="table-auto mx-auto">
-            <thead>
+            <thead class="text-left">
                 <tr>
                     <th>Naam</th>
                     <th>Postcode</th>

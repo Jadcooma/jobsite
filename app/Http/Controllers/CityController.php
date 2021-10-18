@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\City;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Validation\Rule;
-use phpDocumentor\Reflection\Types\Integer;
 
 class CityController extends Controller
 {
@@ -48,5 +47,11 @@ class CityController extends Controller
         $city->update($attributes);
 
         return redirect('admin/cities')->with('success', $city->name . " werd succesvol gewijzigd");
+    }
+
+    public function delete(City $city) {
+        $city->delete();
+
+        return redirect('admin/cities')->with('success', $city->name . " werd succesvol verwijderd");
     }
 }

@@ -42,4 +42,10 @@ class CompanyController extends Controller
 
         return redirect('admin/companies')->with('success', $company->name . " werd succesvol gewijzigd");
     }
+
+    public function delete(Company $company) {
+        $company->delete();
+
+        return redirect('admin/companies')->with('success', $company->name . " werd succesvol verwijderd");
+    }
 }

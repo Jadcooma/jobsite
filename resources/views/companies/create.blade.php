@@ -11,7 +11,7 @@
                         <input class="px-1" name="name" required value="{{old('name')}}" />
 
                         <label for="sector">Sector: </label>
-                        <input class="px-1" name="sector" required value="{{ old('sector') }}" />
+                        @include('companies.sector-dropdown')
                     </div>
 
                     @if ($errors->any())

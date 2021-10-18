@@ -27,7 +27,7 @@ class JobFactory extends Factory
         $faker = FakerFactory::create('nl_NL');
         return [
             'function' => $faker->jobTitle(),
-            'description' => $faker->text(),
+            'description' => $faker->text(60),
             'company_id' => Company::factory(),
             'city_id' => City::factory()
         ];

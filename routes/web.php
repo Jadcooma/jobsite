@@ -32,8 +32,14 @@ Route::post('session/logout', [SessionController::class, 'destroy'])->middleware
  * Admin only
  */
 
+// jobs
+
 Route::get('admin/jobs', [JobController::class, 'manage'])->middleware('admin');
 Route::get('admin/jobs/create', [JobController::class, 'create'])->middleware('admin');
+Route::post('admin/jobs/create', [JobController::class, 'store'])->middleware('admin');
+Route::get('admin/jobs/edit/{job}', [JobController::class, 'edit'])->middleware('admin');
+Route::put('admin/jobs/update/{job}', [JobController::class, 'update'])->middleware('admin');
+Route::delete('admin/jobs/delete/{job}', [JobController::class, 'delete'])->middleware('admin');
 
 // companies
 Route::get('admin/companies', [CompanyController::class, 'manage'])->middleware('admin');
@@ -41,6 +47,7 @@ Route::get('admin/companies/create', [CompanyController::class, 'create'])->midd
 Route::post('admin/companies/create', [CompanyController::class, 'store'])->middleware('admin');
 Route::get('admin/companies/edit/{company}', [CompanyController::class, 'edit'])->middleware('admin');
 Route::put('admin/companies/update/{company}', [CompanyController::class, 'update'])->middleware('admin');
+Route::delete('admin/companies/delete/{company}', [CompanyController::class, 'delete'])->middleware('admin');
 
 // cities
 Route::get('admin/cities', [CityController::class, 'manage'])->middleware('admin');
@@ -48,3 +55,4 @@ Route::get('admin/cities/create', [CityController::class, 'create'])->middleware
 Route::post('admin/cities/create', [CityController::class, 'store'])->middleware('admin');
 Route::get('admin/cities/edit/{city}', [CityController::class, 'edit'])->middleware('admin');
 Route::put('admin/cities/update/{city}', [CityController::class, 'update'])->middleware('admin');
+Route::delete('admin/cities/delete/{city}', [CityController::class, 'delete'])->middleware('admin');

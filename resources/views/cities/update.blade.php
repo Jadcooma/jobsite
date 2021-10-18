@@ -24,7 +24,7 @@
                     </ul>
                     @endif
                     
-                    <button class="p-2 mt-2 font-bold bg-grey-200 border-2 border-black border-solid rounded" type="submit">Aanpassen</button>
+                    <button class="p-2 mt-2 font-bold bg-grey-200 border-2 border-black border-solid rounded" type="submit">Wijzigen</button>
                 </form>
             </x-panel>
         </main>

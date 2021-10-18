@@ -21,7 +21,7 @@ class CompanyFactory extends Factory
      */
     public function definition()
     {
-        $sectors = array('IT', 'Sales', 'Industrie', 'Horeca');
+        $sectors = array('IT', 'Sales', 'Chemie', 'Retail');
 
         return [
             'name' => $this->faker->company() .' '. $this->faker->companySuffix(),
