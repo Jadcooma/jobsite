@@ -1,6 +1,6 @@
 <x-layout>
-    <section class="px-6 py-8">
-        <main class="max-w-lg mx-auto mt-10">
+    <section class="px-6 py-6">
+        <main class="max-w-lg mx-auto">
             <x-panel>
                 <h1 class="text-center font-bold text-xl">Registratie nieuwe gebruiker</h1>
 
@@ -27,6 +27,7 @@
                         @endforeach
                     </ul>
                     @endif
+
                     <button class="p-2 mt-2 font-bold bg-grey-200 border-2 border-black border-solid rounded" type="submit">Registreren</button>
                 </form>
             </x-panel>

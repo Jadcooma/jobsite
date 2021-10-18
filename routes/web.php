@@ -32,9 +32,19 @@ Route::post('session/logout', [SessionController::class, 'destroy'])->middleware
  * Admin only
  */
 
-Route::get('admin/jobs/manage', [JobController::class, 'manage'])->middleware('admin');
+Route::get('admin/jobs', [JobController::class, 'manage'])->middleware('admin');
 Route::get('admin/jobs/create', [JobController::class, 'create'])->middleware('admin');
 
-Route::get('admin/companies/manage', [CompanyController::class, 'manage'])->middleware('admin');
+// companies
+Route::get('admin/companies', [CompanyController::class, 'manage'])->middleware('admin');
+Route::get('admin/companies/create', [CompanyController::class, 'create'])->middleware('admin');
+Route::post('admin/companies/create', [CompanyController::class, 'store'])->middleware('admin');
+Route::get('admin/companies/edit/{company}', [CompanyController::class, 'edit'])->middleware('admin');
+Route::put('admin/companies/update/{company}', [CompanyController::class, 'update'])->middleware('admin');
 
-Route::get('admin/cities/manage', [CityController::class, 'manage'])->middleware('admin');
+// cities
+Route::get('admin/cities', [CityController::class, 'manage'])->middleware('admin');
+Route::get('admin/cities/create', [CityController::class, 'create'])->middleware('admin');
+Route::post('admin/cities/create', [CityController::class, 'store'])->middleware('admin');
+Route::get('admin/cities/edit/{city}', [CityController::class, 'edit'])->middleware('admin');
+Route::put('admin/cities/update/{city}', [CityController::class, 'update'])->middleware('admin');

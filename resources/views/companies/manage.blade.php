@@ -6,10 +6,12 @@
     </header>
     <main>
         <div class="text-center">
-            <button class="text-md font-bold p-2 bg-green-200 rounded mx-auto mb-6">Bedrijf toevoegen</button>
+            <button class="text-md font-bold p-2 bg-green-200 rounded mx-auto mb-6">
+                <a href="/admin/companies/create">Bedrijf toevoegen</a>
+            </button>
         </div>
         @if(empty($companies))
-        <div class="text-center text-2xl">Geen bedrijven in database..</div>
+        <div class="text-center text-2xl">Geen bedrijven in database gevonden..</div>
         @else
         <table class="table-auto mx-auto">
             <thead>

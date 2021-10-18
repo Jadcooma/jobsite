@@ -26,9 +26,9 @@
         <div class="mx-3 my-3 text-white font-bold">
             @auth
             @if (auth()->user()->username === 'admin')
-            <a href="/admin/jobs/manage">Beheer Jobs</a> |
-            <a href="/admin/companies/manage">Beheer Bedrijven</a> |
-            <a href="/admin/cities/manage">Beheer Steden</a>
+            <a href="/admin/jobs">Beheer Jobs</a> |
+            <a href="/admin/companies">Beheer Bedrijven</a> |
+            <a href="/admin/cities">Beheer Steden</a>
             @endif
             @endauth
 
