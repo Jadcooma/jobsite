@@ -26,7 +26,6 @@ Route::get('/', [JobController::class, 'showAll'])->name('home');
  */
 
 Route::middleware('guest')->group( function () {
-
     Route::get('user/create', [UserController::class, 'create'])->name('user-create');
     Route::post('user/create', [UserController::class, 'store'])->name('user-store');
     
@@ -34,7 +33,12 @@ Route::middleware('guest')->group( function () {
     Route::post('session/login', [SessionController::class, 'store'])->name('user-store');
 });
 
-Route::post('session/logout', [SessionController::class, 'destroy'])->middleware('auth')->name('session-destroy');    
+/**
+ * User routing
+ */
+Route::middleware('auth')->group( function () {
+    Route::post('session/logout', [SessionController::class, 'destroy'])->name('session-destroy');    
+});
 
 /**
  * Admin only

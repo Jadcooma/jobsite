@@ -10,6 +10,11 @@
             {{ session('success')}}
         </div>
         @endif
+        @if(isset($hello))
+        <div class="text-center font-bold text-red-500 mx-auto mb-2">
+            {{ $hello }}
+        </div>
+        @endif
         <x-jobs :jobs="$jobs" />
     </main>
 </x-layout>

@@ -10,9 +10,17 @@ use Illuminate\Support\Facades\Request;
 class JobController extends Controller
 {
     public function showAll() {
-        return view('home', [
-            'jobs' => Job::with('city', 'company')->get()
-        ]);
+        if(auth()->user()){
+            return view('home', [
+                'jobs' => Job::with('city', 'company')->get(),
+                'hello' => 'Hello my favorite'
+            ]);    
+        }
+        else{
+            return view('home', [
+                'jobs' => Job::with('city', 'company')->get()
+            ]);    
+        }
     }
 
     public function manage() {
@@ -32,8 +40,8 @@ class JobController extends Controller
         $attributes = Request::validate([
             'function' => 'required',
             'description' => 'required',
-            'company_id' => 'exists:company,id',
-            'city_id' => 'exists:city,id'
+            'company_id' => 'exists:company',
+            'city_id' => 'exists:city'
         ]);
 
         Job::create($attributes);

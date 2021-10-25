@@ -14,7 +14,7 @@ class SessionController extends Controller
     public function store()
     {
         $attributes = request()->validate([
-            'username' => 'required|exists:users,username',
+            'username' => 'required|exists:user,username',
             'password' => 'required'
         ]);
 
@@ -22,8 +22,9 @@ class SessionController extends Controller
             return redirect('/')->with('success', 'U bent succesvol aangemeld');
         }
 
-        throw ValidationException:: withMessages([
-            'username' => 'Geen gebruiker met deze gebruikersnaam gevonden'
+        throw ValidationException::withMessages([
+            'username' => 'Geen gebruiker met deze gebruikersnaam gevonden',
+            'password' => 'Foutief wachtwoord'
         ]);
     }
 
