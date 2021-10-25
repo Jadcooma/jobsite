@@ -11,6 +11,8 @@ class Company extends Model
 
     protected $guarded = [];
 
+    protected $table = 'company';
+
     public function job()
     {
         return $this->hasMany(Job::class);

@@ -10,48 +10,55 @@ class CityController extends Controller
 {
     public function manage()
     {
-        return view('cities.manage', [
+        return view('city.manage', [
             'cities' => City::all()
         ]);
     }
 
     public function create()
     {
-        return view('cities.create');
+        return view('city.create');
     }
 
     public function store()
     {
         $attributes = Request::validate([
             'name' => 'required',
-            'code' => 'required|digits:4|unique:cities,code'
+            'code' => 'required|digits:4|unique:city,code'
         ]);
 
         City::create($attributes);
 
-        return redirect('admin/cities');
+        return redirect()->route('city-manage');
     }
 
     public function edit(City $city)
     {
-        return view('cities.update', ['city' => $city]);
+        return view('city.update', [
+            'city' => $city
+        ]);
     }
 
     public function update(City $city)
     {
         $attributes = Request::validate([
             'name' => 'required',
-            'code' => ['required', 'digits:4', Rule::unique('cities', 'code')->ignore($city->id)]
+            'code' => ['required', 'digits:4', Rule::unique('city', 'code')->ignore($city->id)]
         ]);
 
         $city->update($attributes);
 
-        return redirect('admin/cities')->with('success', $city->name . " werd succesvol gewijzigd");
+        return redirect()
+            ->route('city-manage')
+            ->with('success', $city->name . " werd succesvol gewijzigd");
     }
 
-    public function delete(City $city) {
+    public function delete(City $city)
+    {
         $city->delete();
 
-        return redirect('admin/cities')->with('success', $city->name . " werd succesvol verwijderd");
+        return redirect()
+            ->route('city-manage')
+            ->with('success', $city->name . " werd succesvol verwijderd");
     }
 }

@@ -11,6 +11,8 @@ class Job extends Model
 
     protected $guarded = [];
 
+    protected $table = 'job';
+
     public function company()
     {
         return $this->belongsTo(Company::class, 'company_id');

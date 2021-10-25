@@ -7,17 +7,20 @@ use Illuminate\Support\Facades\Request;
 
 class CompanyController extends Controller
 {
-    public function manage() {
-        return view('companies.manage', [
+    public function manage()
+    {
+        return view('company.manage', [
             'companies' => Company::all()
         ]);
     }
 
-    public function create() {
-        return view('companies.create');
+    public function create()
+    {
+        return view('company.create');
     }
 
-    public function store() {
+    public function store()
+    {
         $attributes = Request::validate([
             'name' => 'required',
             'sector' => 'required'
@@ -25,14 +28,18 @@ class CompanyController extends Controller
 
         Company::create($attributes);
 
-        return redirect('admin/companies');
+        return redirect()->route('company-manage');
     }
 
-    public function edit(Company $company) {
-        return view('companies.update', ['company' => $company]);
+    public function edit(Company $company)
+    {
+        return view('company.update', [
+            'company' => $company
+        ]);
     }
 
-    public function update(Company $company) {
+    public function update(Company $company)
+    {
         $attributes = Request::validate([
             'name' => 'required',
             'sector' => 'required'
@@ -40,12 +47,17 @@ class CompanyController extends Controller
 
         $company->update($attributes);
 
-        return redirect('admin/companies')->with('success', $company->name . " werd succesvol gewijzigd");
+        return redirect()
+            ->route('company-manage')
+            ->with('success', $company->name . " werd succesvol gewijzigd");
     }
 
-    public function delete(Company $company) {
+    public function delete(Company $company)
+    {
         $company->delete();
 
-        return redirect('admin/companies')->with('success', $company->name . " werd succesvol verwijderd");
+        return redirect()
+            ->route('company-manage')
+            ->with('success', $company->name . " werd succesvol verwijderd");
     }
 }

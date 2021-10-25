@@ -16,13 +16,13 @@ class JobController extends Controller
     }
 
     public function manage() {
-        return view('jobs.manage', [
+        return view('job.manage', [
             'jobs' => Job::with('city', 'company')->get()
         ]);
     }
 
     public function create() {
-        return view('jobs.create', [
+        return view('job.create', [
             'cities' => City::all(),
             'companies' => Company::all()
         ]);
@@ -32,17 +32,19 @@ class JobController extends Controller
         $attributes = Request::validate([
             'function' => 'required',
             'description' => 'required',
-            'company_id' => 'exists:companies,id',
-            'city_id' => 'exists:cities,id'
+            'company_id' => 'exists:company,id',
+            'city_id' => 'exists:city,id'
         ]);
 
         Job::create($attributes);
 
-        return redirect('admin/jobs')->with('success', 'Job succesvol aangemaakt');
+        return redirect()
+            ->route('job-manage')
+            ->with('success', 'Job succesvol aangemaakt');
     }
 
     public function edit(Job $job) {
-        return view('jobs.update', [
+        return view('job.update', [
             'job' => $job,
             'cities' => City::get(),
             'companies' => Company::get()
@@ -53,18 +55,22 @@ class JobController extends Controller
         $attributes = Request::validate([
             'function' => 'required',
             'description' => 'required',
-            'company_id' => 'exists:companies,id',
-            'city_id' => 'exists:cities,id'
+            'company_id' => 'exists:company,id',
+            'city_id' => 'exists:city,id'
         ]);
 
         $job->update($attributes);
 
-        return redirect('admin/jobs')->with('success', 'Job succesvol aangepast');
+        return redirect()
+            ->route('job-manage')
+            ->with('success', 'Job succesvol aangepast');
     }
 
     public function delete(Job $job) {
         $job->delete();
 
-        return redirect('admin/jobs')->with('success', 'Job succesvol verwijderd');
+        return redirect()
+            ->route('job-manage')
+            ->with('success', 'Job succesvol verwijderd');
     }
 }

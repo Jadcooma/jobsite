@@ -7,7 +7,7 @@
     <main>
         <div class="text-center">
             <button class="text-md font-bold p-2 bg-green-200 rounded mx-auto mb-6">
-                <a href="/admin/jobs/create">Job toevoegen</a>
+                <a href="/admin/job/create">Job toevoegen</a>
             </button>
         </div>
 

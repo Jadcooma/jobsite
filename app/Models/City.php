@@ -11,6 +11,8 @@ class City extends Model
 
     protected $guarded = [];
 
+    protected $table = 'city';
+
     public function job()
     {
         return $this->hasMany(Job::class);
