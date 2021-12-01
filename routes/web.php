@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\JobController;
+use App\Http\Controllers\JobFavoriteController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\CompanyController;
 
@@ -25,10 +26,10 @@ Route::get('/', [JobController::class, 'showAll'])->name('home');
  * Guest routing
  */
 
-Route::middleware('guest')->group( function () {
+Route::middleware('guest')->group(function () {
     Route::get('user/create', [UserController::class, 'create'])->name('user-create');
     Route::post('user/create', [UserController::class, 'store'])->name('user-store');
-    
+
     Route::get('session/login', [SessionController::class, 'create'])->name('user-login');
     Route::post('session/login', [SessionController::class, 'store'])->name('user-store');
 });
@@ -36,15 +37,18 @@ Route::middleware('guest')->group( function () {
 /**
  * User routing
  */
-Route::middleware('auth')->group( function () {
-    Route::post('session/logout', [SessionController::class, 'destroy'])->name('session-destroy');    
+Route::get('favorite/create', [JobFavoriteController::class, 'create'])->name('favorite-create');
+
+Route::middleware('auth')->group(function () {
+    Route::post('session/logout', [SessionController::class, 'destroy'])->name('session-destroy');
+    Route::get('favorite/delete/{job_favorite}', [JobFavoriteController::class, 'delete'])->name('favorite-create');
 });
 
 /**
  * Admin only
  */
 
-Route::middleware('admin')->group( function() {
+Route::middleware('admin')->group(function () {
     // job
     Route::get('admin/job', [JobController::class, 'manage'])->name('job-manage');
     Route::get('admin/job/create', [JobController::class, 'create'])->name('job-create');

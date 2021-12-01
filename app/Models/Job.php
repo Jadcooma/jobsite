@@ -22,4 +22,10 @@ class Job extends Model
     {
         return $this->belongsTo(City::class, 'city_id');
     }
+
+    protected function job_favorite()
+    {
+        return $this->hasMany(JobFavorite::class);
+    }
+
 }

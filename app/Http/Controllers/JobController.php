@@ -5,22 +5,23 @@ namespace App\Http\Controllers;
 use App\Models\Job;
 use App\Models\City;
 use App\Models\Company;
+use App\Models\JobFavorite;
 use Illuminate\Support\Facades\Request;
 
 class JobController extends Controller
 {
     public function showAll() {
-        if(auth()->user()){
-            return view('home', [
-                'jobs' => Job::with('city', 'company')->get(),
-                'hello' => 'Hello my favorite'
-            ]);    
-        }
-        else{
-            return view('home', [
-                'jobs' => Job::with('city', 'company')->get()
-            ]);    
-        }
+        $user = auth()->user();
+        $jobs = Job::with('city', 'company')->get();
+
+        $favorites = isset($user)
+            ? JobFavorite::where('user_id', $user->id)->get()
+            : null;
+
+        return view('home', [
+            'jobs' => $jobs,
+            'favorites' => $favorites
+        ]);
     }
 
     public function manage() {

@@ -53,4 +53,9 @@ class User extends Authenticatable
     {
         $this->attributes['password'] = bcrypt($password);
     }
+
+    protected function job_favorite()
+    {
+        return $this->hasMany(JobFavorite::class);
+    }
 }
