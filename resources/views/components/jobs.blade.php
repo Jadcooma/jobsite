@@ -1,5 +1,5 @@
 @props(['jobs', 'favorites'])
-<div class="jobs-container border-2 border-gray-200 rounded-lg max-w-prose mx-auto">
+<div class="jobs-container flex flex-wrap md:space-x-3 space-y-3 justify-center mx-12">
     @foreach ($jobs as $job)
     <?php
     $favorite = isset($favorites) 

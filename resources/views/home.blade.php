@@ -4,7 +4,7 @@
             Vind hier uw volgende droomjob!
         </div>
     </header>
-    <main class="mt-6">
+    <main class="mt-6 w-full">
         @if (session()->has('success'))
         <div class="text-center font-bold text-green-500 mx-auto mb-2">
             {{ session('success')}}
