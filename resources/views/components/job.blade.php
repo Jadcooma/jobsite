@@ -1,5 +1,5 @@
 @props(['job', 'favorite'])
-<article class="shadow border-2 border-gray-300 px-2 py-2 md:w-1/3">
+<article class="shadow border-2 border-gray-300 px-2 py-2 w-2/3 md:w-1/3 md:mx-2 my-2">
     <div class="flex justify-around text-l md:text-xl">
         <div>{{ $job->function }}</div>
         @if( auth()->user() )
@@ -12,7 +12,7 @@
         </button>
         @endif
     </div>
-    <div class="flex flex-row justify-evenly text-center mt-2">
+    <div class="flex flex-row justify-evenly text-center text-sm md:text-base mt-2">
         <div>
             <h3 class="font-bold">Bedrijf</h3>
             <div> {{ $job->company->name }} </div>
@@ -27,5 +27,4 @@
         </div>
     </div>
     <div class="text-center text-xs pt-2"> {{ $job->description }} </div>
-
 </article>

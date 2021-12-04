@@ -41,10 +41,10 @@
                     .html('&#10060')
                     .attr('data-mode', 'Delete')
                     .attr('data-favorite-id', response.id)
-                    // .off("click")
-                    // .on("click", function() {
-                    //     DeleteFavorite(response.id)})
-                
+                // .off("click")
+                // .on("click", function() {
+                //     DeleteFavorite(response.id)})
+
                 alert("favoriet aangemaakt!")
             }).fail(function(request, status, message) {
                 alert(status + ": " + message);
@@ -65,9 +65,9 @@
                     .html('&#11088')
                     .attr('data-mode', 'Create')
                     .removeAttr('data-favorite-id')
-                    // .off()
-                    // .on("click", function() {
-                    //     CreateFavorite(response.job_id)});
+                // .off()
+                // .on("click", function() {
+                //     CreateFavorite(response.job_id)});
                 alert("favoriet verwijderd!");
             }).fail(function(request, status, message) {
                 alert(status + ": " + message);
